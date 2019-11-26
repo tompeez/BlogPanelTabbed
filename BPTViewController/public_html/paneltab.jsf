@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="panneltabbed.jsf" id="d1">
+        <af:form id="f1">
+            <af:panelGridLayout id="pgl1">
+                <af:gridRow height="50px" id="gr2">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc2">
+                        <!-- Header -->
+                        <af:outputText value="af:panelTabbed" id="ot1"
+                                       inlineStyle="font-size:x-large;"/>
+                    </af:gridCell>
+                </af:gridRow>
+                <af:gridRow height="50%" id="gr1">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+                        <!-- Content -->
+                        <af:selectOneChoice label="Vertical Tab Mode" id="soc1"
+                                            value="#{viewScope.PanelTabBean.selectedVerticalTabMode}" autoSubmit="true">
+                            <af:selectItem label="Icon Only" value="iconOnly" id="si1"/>
+                            <af:selectItem label="IconAndText" value="iconAndText" id="si2"/>
+                        </af:selectOneChoice>
+                        <af:panelTabbed position="left" id="pt1"
+                                        verticalTabMode="#{viewScope.PanelTabBean.selectedVerticalTabMode}"
+                                        partialTriggers="soc1">
+                            <af:showDetailItem id="tab1" text="New Customer" icon="/icons/add.png" disclosed="true"/>
+                            <af:showDetailItem id="tab2" text="Approvals" icon="/icons/accept.png"/>
+                            <af:showDetailItem id="tab3" text="Calculations" icon="/icons/calculator.png"/>
+                        </af:panelTabbed>
+                    </af:gridCell>
+                </af:gridRow>
+                <af:gridRow id="gr3" height="50%">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc3">
+                        <af:panelTabbed position="right" id="pt2"
+                                        verticalTabMode="#{viewScope.PanelTabBean.selectedVerticalTabMode}"
+                                        partialTriggers="soc1">
+                            <af:showDetailItem id="tab4" text="New Customer" icon="/icons/accept.png"/>
+                            <af:showDetailItem id="tab5" text="Approvals" icon="/icons/clock.png"/>
+                            <af:showDetailItem id="tab6" text="Calculations" icon="/icons/cross.png"/>
+                        </af:panelTabbed>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </af:form>
+    </af:document>
+</f:view>
